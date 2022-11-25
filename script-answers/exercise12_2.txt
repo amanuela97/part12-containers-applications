@@ -1,0 +1,4 @@
+1. docker container run -it ubuntu bash
+2. mkdir ./usr/src/app
+3. touch ./usr/src/app/index.js
+4. exit
