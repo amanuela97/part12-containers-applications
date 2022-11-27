@@ -12,5 +12,10 @@ services:
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - ./mongo_data:/data/db # create a directory called mongo_data to your local filesystem and map it into the container as /data/db. This means the data in /data/db is stored outside of the container but still accessible by the container!
-
-# MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+  redis:
+    image: redis
+    ports:
+      - 6378:6378
+    volumes:
+      - ./redis_data:/data
+# REDIS_URL=redis://localhost:6378 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
