@@ -1,0 +1,9 @@
+docker container ls
+docker exec -it todo-backend-redis-1 sh
+redis-cli
+KEYS num_of_todos
+GET num_of_todos
+SET num_of_todos 9001
+GET num_of_todos
+DEL num_of_todos
+exit
