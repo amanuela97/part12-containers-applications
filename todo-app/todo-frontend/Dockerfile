@@ -5,9 +5,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json .
 
-RUN npm ci
+RUN npm ci 
 
 COPY . .
+
+RUN CI=true npm test
 
 ENV REACT_APP_BACKEND_URL='http://localhost:3000'
 
