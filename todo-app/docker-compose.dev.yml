@@ -11,8 +11,8 @@ services:
     ports:
       - 3000:3000
     environment:
-      - REACT_APP_BACKEND_URL=http://localhost:8080/
-    container_name: todo-front-dev-c
+      - REACT_APP_BACKEND_URL=http://localhost:8080/api/
+    container_name: todo-front-dev-n
   mongo:
     image: mongo
     ports:
@@ -46,7 +46,7 @@ services:
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
-    container_name: todo-backend-dev-c
+    container_name: todo-backend-dev-n
   nginx:
     image: nginx:1.20.1
     volumes:
