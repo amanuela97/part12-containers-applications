@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  app:
+    image: blog-frontend-dev-image
+    build:
+      context: ./bloglist-frontend/
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./bloglist-frontend/:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080/api/
+    container_name: blog-frontend-dev-container
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - ./blog/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./blog/mongo_data:/data/db
+  backend:
+    image: blog-backend-dev-image
+    build:
+      context: ./blog/
+      dockerfile: dev.Dockerfile
+    depends_on:
+      - mongo
+    ports:
+      - 3003:3003
+    volumes:
+      - ./blog/:/usr/src/app
+    environment:
+      - DB_URL=${DB_URL}
+      - SECRET=${SECRET}
+    container_name: blog-backend-dev-container
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy-2
+    depends_on:
+      - app

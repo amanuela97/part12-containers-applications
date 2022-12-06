@@ -1,0 +1,44 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "blog list application",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint .",
+    "start:test": "cross-env NODE_ENV=test node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanuela97/FullStack2021.git"
+  },
+  "author": "Amanuel Ayezabu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amanuela97/FullStack2021/issues"
+  },
+  "homepage": "https://github.com/amanuela97/FullStack2021#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "http": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.0.4",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^27.1.0",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
+  }
+}

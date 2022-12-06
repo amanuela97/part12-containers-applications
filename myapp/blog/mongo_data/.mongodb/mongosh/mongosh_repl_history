@@ -1,0 +1,86 @@
+cls
+db.user.insertOne({ username: 'manu', password: 'Manu1234' })
+db.createCollection('user')
+cls
+clear
+show collections
+cls
+db.users.insertOne({ username: 'manu', password: 'Manu1234' })
+cls
+db.users.insert({ username: 'manu', password: 'Manu1234' })
+cls
+db.createCollection('users')
+db.createCollection('blogs')
+show collections
+cls
+use the_databse
+show dbs
+cls
+clear
+use admin
+cls
+clear
+cls
+show users
+show dbs
+cls
+show users
+cls
+db.createCollection('blogs')
+show collections
+cls
+ls
+cls
+use the_database
+show users
+show collections
+cls
+use admin
+show dbs
+cls
+clear
+db.createCollection('blogs')
+cls
+use admin
+cls
+show dbs
+cls
+db.createCollection('blogs')
+db.createUser({ user: 'the_username', pwd: 'the_password', roles: [ { role: 'dbOwner', db: 'the_database' }] })
+cls
+clear
+show dbs
+cls
+clear
+use admin
+cls
+clear
+cls
+clear
+show dbs
+cls
+clear
+use root
+cls
+show dbs
+cls
+use admin
+cls
+show dbs
+clear
+cls
+clear
+show dbs
+cls
+clear
+use root
+cls
+show dbs
+cls
+use admin
+cls
+show dbsbs
+cls
+use admin
+cls
+show dbs
